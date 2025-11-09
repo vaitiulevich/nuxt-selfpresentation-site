@@ -14,7 +14,8 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/eslint', '@nuxt/icon'],
   nitro: {
-    preset: 'node-server',
+    // preset: 'node-server',
+    preset: 'versel',
     serveStatic: true
   },
 
