@@ -1,8 +1,15 @@
 {
-  "version": 2,
-  "buildCommand": "nuxt build",
-  "devCommand": "nuxt dev",
-  "installCommand": "yarn install",
-  "framework": "nuxtjs",
-  "outputDirectory": ".output/public"
+  "version": 3,
+  "builds": [
+    {
+      "src": "nuxt.config.ts",
+      "use": "@vercel/nuxt"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
