@@ -13,11 +13,11 @@ export default defineNuxtConfig({
   ssr: true,
 
   modules: ['@nuxt/eslint', '@nuxt/icon'],
-  nitro: {
-    // preset: 'node-server',
-    preset: 'versel',
-    serveStatic: true
-  },
+  // nitro: {
+  //   // preset: 'node-server',
+  //   preset: 'versel',
+  //   serveStatic: true
+  // },
 
   routeRules: {
     '/**': {
