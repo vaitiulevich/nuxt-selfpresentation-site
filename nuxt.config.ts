@@ -30,8 +30,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
         'data-theme': 'light'
-      }
-    }
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ]
+    },
+    baseURL: process.env.NODE_ENV === 'production' ? '/' : '/'
   },
 
   devServer: {
