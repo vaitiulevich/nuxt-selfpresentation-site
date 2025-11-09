@@ -46,12 +46,12 @@ const hoverImage = '/images/avatar-hi.webp'
           class="avatar-image"
           loading="eager"
         />
-        <div class="image-glow"></div>
+        <div class="image-glow" />
       </div>
     </div>
 
     <NuxtLink to="/about" class="scroll-indicator">
-      <div class="scroll-arrow"></div>
+      <div class="scroll-arrow" />
     </NuxtLink>
   </div>
 </template>
