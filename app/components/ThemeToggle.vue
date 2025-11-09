@@ -11,7 +11,20 @@ const { theme, toggleTheme, isReady } = useTheme()
     :disabled="!isReady"
     @click="toggleTheme"
   >
-    <span v-if="theme === 'light'">🌙</span>
-    <span v-else>☀️</span>
+    <span v-if="theme === 'light'">
+      <Icon class="theme-icon" name="ph:moon-stars-bold" size="30"
+    /></span>
+    <span v-else><Icon class="theme-icon" name="meteocons:clear-day-fill" size="30" /></span>
   </button>
 </template>
+
+<style scoped>
+.theme-icon {
+  cursor: pointer;
+  color: var(--accent-color);
+}
+.theme-toggle {
+  border: none;
+  background-color: transparent;
+}
+</style>
