@@ -11,11 +11,6 @@ const nav = [
     label: 'About',
     to: '/about',
     icon: 'ph:person-arms-spread-duotone'
-  },
-  {
-    label: 'Perfomance',
-    to: '/perfomance',
-    icon: 'ph:clipboard-text-light'
   }
 ]
 

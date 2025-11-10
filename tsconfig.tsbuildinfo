@@ -1,0 +1,1 @@
+{"root":["./.nuxt/nuxt.d.ts","./app/app.vue","./app/components/appheader.vue","./app/components/themetoggle.vue","./app/composables/usetheme.ts","./app/layouts/default.vue","./app/pages/about.vue","./app/pages/index.vue","./app/types/assets.d.ts","./app/types/theme.ts","./.nuxt/nuxt.node.d.ts","./nuxt.config.ts"],"errors":true,"version":"5.9.3"}

@@ -1,191 +1,53 @@
-<template>
-  <div class="about-page">
-    <section class="about-hero">
-      <div class="container">
-        <h1 class="about-title animate-fade-up" style="--delay: 0.1s">About Me</h1>
-        <p class="about-subtitle animate-fade-up" style="--delay: 0.3s">
-          Get to know more about my journey, skills, and passion
-        </p>
-      </div>
-    </section>
-
-    <section class="about-content">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-main">
-            <div class="content-block animate-fade-up" style="--delay: 0.5s">
-              <h2>My Story</h2>
-              <p>
-                Hello! I'm Katya, a passionate frontend developer with a love for creating
-                beautiful, functional, and user-friendly web experiences. My journey in web
-                development started with curiosity and has evolved into a true passion for crafting
-                digital solutions.
-              </p>
-            </div>
-
-            <div class="content-block animate-fade-up" style="--delay: 0.7s">
-              <h3>What I Do</h3>
-              <p>
-                I specialize in modern frontend technologies like Vue.js, Nuxt, and TypeScript. I
-                enjoy turning complex problems into simple, beautiful designs that provide
-                exceptional user experiences.
-              </p>
-            </div>
-
-            <div class="personal-info content-block animate-fade-up" style="--delay: 0.9s">
-              <h3>Personal Info</h3>
-              <div class="info-grid">
-                <div
-                  v-for="(info, index) in personalInfo"
-                  :key="info.label"
-                  class="info-item animate-scale"
-                  :style="`--delay: ${0.9 + index * 0.1}s`"
-                >
-                  <div class="info-icon">{{ info.icon }}</div>
-                  <div class="info-content">
-                    <div class="info-label">{{ info.label }}</div>
-                    <div class="info-value">{{ info.value }}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-sidebar">
-            <div class="skills-card animate-slide-left" style="--delay: 0.6s">
-              <h3>Technologies</h3>
-              <div class="skills-list">
-                <span
-                  v-for="(skill, index) in skills"
-                  :key="skill"
-                  class="skill-tag animate-bounce-in"
-                  :style="`--delay: ${0.6 + index * 0.05}s`"
-                >
-                  {{ skill }}
-                </span>
-              </div>
-            </div>
-
-            <div class="interests-card animate-slide-left" style="--delay: 0.8s">
-              <h3>Interests</h3>
-              <div class="interests-list">
-                <span
-                  v-for="(interest, index) in interests"
-                  :key="interest"
-                  class="interest-item animate-fade-in"
-                  :style="`--delay: ${0.8 + index * 0.1}s`"
-                >
-                  {{ interest }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="timeline-section">
-      <div class="container">
-        <h2 class="section-title animate-fade-up" style="--delay: 0.4s">My Journey</h2>
-        <div class="timeline">
-          <div
-            v-for="(item, index) in timeline"
-            :key="item.year"
-            class="timeline-item animate-slide-right"
-            :style="`--delay: ${0.5 + index * 0.15}s`"
-          >
-            <div class="timeline-marker" />
-            <div class="timeline-content">
-              <h3>{{ item.year }}</h3>
-              <h4>{{ item.title }}</h4>
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-section">
-      <div class="container">
-        <h2 class="section-title animate-fade-up" style="--delay: 0.3s">By the Numbers</h2>
-        <div class="stats-grid">
-          <div
-            v-for="stat in stats"
-            :key="stat.label"
-            class="stat-card animate-count"
-            :style="`--delay: ${0.4 + parseInt(stat.number) * 0.1}s`"
-          >
-            <div class="stat-number" :data-count="stat.number">0+</div>
-            <div class="stat-label">{{ stat.label }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { onMounted } from 'vue'
+const avatarSelibrate = '/images/avatar-selibrate.webp'
+const avatarIdea = '/images/avatar-idea.webp'
 
 const personalInfo = [
-  { label: 'Name', value: 'Katya', icon: '👩‍💻' },
-  { label: 'Location', value: 'Your City', icon: '📍' },
-  { label: 'Email', value: 'hello@example.com', icon: '✉️' },
-  { label: 'Status', value: 'Available for projects', icon: '🚀' }
+  { label: 'At company', value: 'More then 1 year', img: avatarSelibrate },
+  {
+    label: 'Continuous learning',
+    value: 'An environment in which I learn a lot of new technologies',
+    img: avatarIdea
+  }
 ]
 
-const skills = [
-  'Vue.js',
-  'Nuxt',
-  'TypeScript',
-  'JavaScript',
-  'HTML/CSS',
-  'SASS/SCSS',
-  'Responsive Design',
-  'Git'
-]
+const skills = ['Vue.js', 'Nuxt', 'TypeScript', 'Tailwind', 'SASS/SCSS', 'GitHub Actions']
 
-const interests = [
-  '🎨 UI/UX Design',
-  '🚀 New Technologies',
-  '📚 Continuous Learning',
-  '🎵 Music & Creativity',
-  '✈️ Travel & Exploration'
+const theory = [
+  { label: 'Docker and Docker Compose', icon: 'devicon:docker' },
+  { label: 'Design Patterns', icon: 'pajamas:building' },
+  { label: 'Zustand', icon: 'pajamas:archive' },
+  { label: 'Testing pyramid', icon: 'heroicons-outline:search-circle' },
+  { label: 'GraphQL', icon: 'devicon:apollographql' }
 ]
 
 const timeline = [
   {
-    year: '2020',
-    title: 'Started Coding Journey',
-    description: 'Began learning web development fundamentals and fell in love with coding'
+    title: 'Укрепила знания',
+    description:
+      'Прошла мини-этап по подготовке, что помогло глубже укрепить текущие знания и умение решать задачи'
   },
   {
-    year: '2021',
-    title: 'First Projects',
-    description: 'Built first websites and applications, exploring different technologies'
+    title: 'Опыт в рефайментах',
+    description:
+      'Получила опыт в оценке стори поитами, оценивала и подготавливалась к рефайментам от команды фронта'
   },
   {
-    year: '2022',
-    title: 'Vue.js Specialist',
-    description: 'Focused on Vue.js ecosystem and modern frontend development patterns'
+    title: 'Навык саппорта',
+    description: 'Принимала участие в помощи и поддержке коллег, делилась практиками на проекте '
   },
   {
-    year: '2023',
-    title: 'Professional Experience',
-    description: 'Started working on commercial projects and collaborating with teams'
-  },
-  {
-    year: '2024',
-    title: 'Current Focus',
-    description: 'Mastering Nuxt, TypeScript and building scalable applications'
+    title: 'Мейнтейнерство',
+    description:
+      'Взяла дополнительную ответсвенность за ui-lib, создавала задачи для улучшения, проводила ревью, учавствовала в обсуждениях о внедрении библиотеки на сторонний проект, описывала задачи для сторонней команды и коммуницировла с разработчиками, определяла приоритезацию тасок и версионность библиотеки '
   }
 ]
 
 const stats = [
-  { number: '2', label: 'Years Experience' },
-  { number: '50', label: 'Projects Completed' },
-  { number: '10', label: 'Technologies' },
-  { number: '25', label: 'Happy Clients' }
+  { number: '1', label: 'Years of Modsen Experience' },
+  { number: '100', label: 'MMS Commites' },
+  { number: '3', label: 'Technologies' }
 ]
 
 onMounted(() => {
@@ -224,6 +86,128 @@ onMounted(() => {
   setTimeout(animateCounters, 1000)
 })
 </script>
+
+<template>
+  <div class="about-page">
+    <section class="about-hero">
+      <div class="container">
+        <h1 class="about-title animate-fade-up" style="--delay: 0.1s">Performance Review</h1>
+        <p class="about-subtitle animate-fade-up" style="--delay: 0.3s">
+          Get to know more about my learned technologies and practices
+        </p>
+      </div>
+    </section>
+
+    <section class="about-content">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-main">
+            <div class="content-block animate-fade-up" style="--delay: 0.5s">
+              <h2>My Story</h2>
+              <p>
+                Hello! I'm Katya, a frontend developer with a love for creating beautiful,
+                functional, and user-friendly web experiences.
+              </p>
+            </div>
+
+            <div class="content-block animate-fade-up" style="--delay: 0.7s">
+              <h3>What Is Described Here</h3>
+              <p>This page is intended to describe my recent experience.</p>
+            </div>
+
+            <div class="personal-info content-block animate-fade-up" style="--delay: 0.9s">
+              <h3>My Modsen Experience</h3>
+              <div class="info-grid">
+                <div
+                  v-for="(info, index) in personalInfo"
+                  :key="info.label"
+                  class="info-item animate-scale"
+                  :style="`--delay: ${0.9 + index * 0.1}s`"
+                >
+                  <div class="info-icon">
+                    <img :src="info.img" :alt="info.label" class="info-image" loading="eager" />
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">{{ info.label }}</div>
+                    <div class="info-value">{{ info.value }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-sidebar">
+            <div class="skills-card animate-slide-left" style="--delay: 0.6s">
+              <h3>New Technologies</h3>
+              <div class="skills-list">
+                <span
+                  v-for="(skill, index) in skills"
+                  :key="skill"
+                  class="skill-tag animate-bounce-in"
+                  :style="`--delay: ${0.6 + index * 0.05}s`"
+                >
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+
+            <div class="interests-card animate-slide-left" style="--delay: 0.8s">
+              <h3>New theory</h3>
+              <div v-for="(interest, index) in theory" :key="interest.label" class="interests-list">
+                <div class="theory-icon-wrapper">
+                  <Icon :name="interest.icon" size="20" class="theory-icon" />
+                </div>
+                <span
+                  class="interest-item animate-fade-in"
+                  :style="`--delay: ${0.8 + index * 0.1}s`"
+                >
+                  {{ interest.label }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="container">
+        <h2 class="section-title animate-fade-up" style="--delay: 0.4s">Личные Достижения</h2>
+        <div class="timeline">
+          <div
+            v-for="(item, index) in timeline"
+            :key="index"
+            class="timeline-item animate-slide-right"
+            :style="`--delay: ${0.5 + index * 0.15}s`"
+          >
+            <div class="timeline-marker" />
+            <div class="timeline-content">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <h2 class="section-title animate-fade-up" style="--delay: 0.3s">By the Numbers</h2>
+        <div class="stats-grid">
+          <div
+            v-for="stat in stats"
+            :key="stat.label"
+            class="stat-card animate-count"
+            :style="`--delay: ${0.4 + parseInt(stat.number) * 0.1}s`"
+          >
+            <div class="stat-number" :data-count="stat.number">0+</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
 
 <style scoped>
 .about-page {
@@ -319,14 +303,18 @@ onMounted(() => {
 
 .info-icon {
   font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-color);
+  background: var(--bg-secondary);
   border-radius: 50%;
   color: var(--bg-secondary);
+}
+
+.info-image {
+  height: 100%;
 }
 
 .info-content {
@@ -384,14 +372,30 @@ onMounted(() => {
 
 .interests-list {
   display: flex;
-  flex-direction: column;
   gap: 0.75rem;
+  align-items: center;
 }
 
 .interest-item {
   color: var(--text-secondary);
   font-size: 0.95rem;
   padding: 0.5rem 0;
+}
+
+.theory-icon-wrapper {
+  background-color: rgba(151, 151, 151, 0.307);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+}
+
+.theory-icon {
+  color: var(--accent-color);
 }
 
 /* Timeline Section */
@@ -432,10 +436,10 @@ onMounted(() => {
 
 .timeline-marker {
   position: absolute;
-  left: 22px;
-  top: 0;
-  width: 16px;
-  height: 16px;
+  left: 22.5px;
+  top: -1px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   background: var(--accent-color);
   border: 4px solid var(--bg-secondary);
@@ -651,7 +655,7 @@ onMounted(() => {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 </style>

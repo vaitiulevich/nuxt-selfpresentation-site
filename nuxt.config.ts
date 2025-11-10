@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['@/assets/scss/main.scss'],
+  typescript: {
+    typeCheck: true,
+    strict: true
+  },
   imports: {
     autoImport: true
   },
@@ -13,11 +17,6 @@ export default defineNuxtConfig({
   ssr: true,
 
   modules: ['@nuxt/eslint', '@nuxt/icon'],
-  // nitro: {
-  //   // preset: 'node-server',
-  //   preset: 'versel',
-  //   serveStatic: true
-  // },
 
   routeRules: {
     '/**': {
@@ -37,7 +36,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     },
-    baseURL: process.env.NODE_ENV === 'production' ? '/' : '/'
+    baseURL: '/'
   },
 
   devServer: {

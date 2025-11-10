@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { navigateTo } from 'nuxt/app'
 
 const handleDowloadCV = () => {
   const link = document.createElement('a')
@@ -11,6 +12,10 @@ const handleDowloadCV = () => {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+const navigateToAbout = () => {
+  navigateTo('/about')
 }
 
 const isHovered = ref(false)
@@ -34,7 +39,7 @@ const hoverImage = '/images/avatar-hi.webp'
         </h2>
 
         <div class="cta-buttons">
-          <button class="btn btn-primary" @click="scrollToAbout">Discover More</button>
+          <button class="btn btn-primary" @click="navigateToAbout">Discover More</button>
           <button class="btn btn-secondary" @click="handleDowloadCV">Download CV</button>
         </div>
       </div>
