@@ -19,7 +19,7 @@ const theory = [
   { label: 'Design Patterns', icon: 'pajamas:building' },
   { label: 'GitHub Actions', icon: 'pajamas:archive' },
   { label: 'Testing pyramid', icon: 'heroicons-outline:search-circle' },
-  { label: 'GraphQL', icon: 'devicon:apollographql' }
+  { label: 'GraphQL', icon: 'material-icon-theme:graphql' }
 ]
 
 const timeline = [
@@ -43,7 +43,7 @@ const timeline = [
 const techTimeline = [
   {
     title: 'Реализация модуля отсутвий',
-    description: 'Принимала участие в разработке и и нтеграции нового модуля отсутвий'
+    description: 'Принимала участие в разработке и интеграции нового модуля отсутвий'
   },
   {
     title: 'Расширение модуля Dashboard',
@@ -223,6 +223,9 @@ onMounted(() => {
           </div>
         </div>
       </div>
+    </section>
+    <section class="stats-section">
+      <DevPlans />
     </section>
 
     <section class="stats-section">
