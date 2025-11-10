@@ -12,35 +12,50 @@ const personalInfo = [
   }
 ]
 
-const skills = ['Vue.js', 'Nuxt', 'TypeScript', 'Tailwind', 'SASS/SCSS', 'GitHub Actions']
+const skills = ['Vue.js', 'Nuxt', 'TypeScript', 'Tailwind', 'SASS/SCSS', 'Zustand']
 
 const theory = [
   { label: 'Docker and Docker Compose', icon: 'devicon:docker' },
   { label: 'Design Patterns', icon: 'pajamas:building' },
-  { label: 'Zustand', icon: 'pajamas:archive' },
+  { label: 'GitHub Actions', icon: 'pajamas:archive' },
   { label: 'Testing pyramid', icon: 'heroicons-outline:search-circle' },
   { label: 'GraphQL', icon: 'devicon:apollographql' }
 ]
 
 const timeline = [
   {
-    title: 'Укрепила знания',
+    title: 'Закрепление навыков',
     description:
-      'Прошла мини-этап по подготовке, что помогло глубже укрепить текущие знания и умение решать задачи'
+      'Прошла мини-этап по подготовке, что укрепило текущие знания и умение решать задачи разной сложности'
   },
   {
-    title: 'Опыт в рефайментах',
+    title: 'Менеджерские навыки',
     description:
-      'Получила опыт в оценке стори поитами, оценивала и подготавливалась к рефайментам от команды фронта'
-  },
-  {
-    title: 'Навык саппорта',
-    description: 'Принимала участие в помощи и поддержке коллег, делилась практиками на проекте '
+      'Принимала участие в сппорте коллег, планировании спринта, оптимизации рабочих процессов и бизнес решений'
   },
   {
     title: 'Мейнтейнерство',
     description:
-      'Взяла дополнительную ответсвенность за ui-lib, создавала задачи для улучшения, проводила ревью, учавствовала в обсуждениях о внедрении библиотеки на сторонний проект, описывала задачи для сторонней команды и коммуницировла с разработчиками, определяла приоритезацию тасок и версионность библиотеки '
+      'Поддержка ui-lib, создавала задачи для улучшения, проводила ревью, учавствовала в обсуждениях о внедрении библиотеки на сторонний проект, описывала задачи для сторонней команды и коммуницировла с разработчиками, определяла приоритезацию тасок и версионность библиотеки, получила опыт в релизном-менджменте'
+  }
+]
+
+const techTimeline = [
+  {
+    title: 'Реализация модуля отсутвий',
+    description: 'Принимала участие в разработке и и нтеграции нового модуля отсутвий'
+  },
+  {
+    title: 'Расширение модуля Dashboard',
+    description: 'Реализация и интегрция новых пользоваетльских виджетов'
+  },
+  {
+    title: 'Опыт работы с Web Speech API',
+    description: 'Участвовала в оптимизации компонентов с поддержкой голосового ввода'
+  },
+  {
+    title: 'Работа с кодовой базой проекта',
+    description: 'Поддержка и оптимизация сущестывующих решений, рефакторинг кода'
   }
 ]
 
@@ -103,7 +118,7 @@ onMounted(() => {
         <div class="about-grid">
           <div class="about-main">
             <div class="content-block animate-fade-up" style="--delay: 0.5s">
-              <h2>My Story</h2>
+              <h2>About Me</h2>
               <p>
                 Hello! I'm Katya, a frontend developer with a love for creating beautiful,
                 functional, and user-friendly web experiences.
@@ -152,7 +167,7 @@ onMounted(() => {
             </div>
 
             <div class="interests-card animate-slide-left" style="--delay: 0.8s">
-              <h3>New theory</h3>
+              <h3>New Theory</h3>
               <div v-for="(interest, index) in theory" :key="interest.label" class="interests-list">
                 <div class="theory-icon-wrapper">
                   <Icon :name="interest.icon" size="20" class="theory-icon" />
@@ -164,6 +179,26 @@ onMounted(() => {
                   {{ interest.label }}
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="container">
+        <h2 class="section-title animate-fade-up" style="--delay: 0.4s">Технические Достижения</h2>
+        <div class="timeline">
+          <div
+            v-for="(item, index) in techTimeline"
+            :key="index"
+            class="timeline-item animate-slide-right"
+            :style="`--delay: ${0.5 + index * 0.15}s`"
+          >
+            <div class="timeline-marker" />
+            <div class="timeline-content">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
             </div>
           </div>
         </div>
