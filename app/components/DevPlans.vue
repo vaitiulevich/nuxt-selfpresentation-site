@@ -1,21 +1,5 @@
 <script setup lang="ts">
-const roadmap = [
-  {
-    icon: 'material-icon-theme:next',
-    name: 'Nuxt & Vue',
-    description: 'Advanced patterns and performance'
-  },
-  {
-    icon: 'material-icon-theme:folder-element-open',
-    name: 'Jotai & Recoil',
-    description: 'Description'
-  },
-  {
-    icon: 'material-icon-theme:gulp',
-    name: 'Gulp',
-    description: 'Description'
-  }
-]
+import { roadmap } from '../composables/constants/index'
 </script>
 
 <template>
@@ -142,6 +126,7 @@ const roadmap = [
 
 .roadmap-content {
   background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px var(--bg-secondary);

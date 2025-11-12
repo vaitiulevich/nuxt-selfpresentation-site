@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { skills, theory, timeline, techTimeline, stats } from '../composables/constants/index'
+
 const avatarSelibrate = '/images/avatar-selibrate.webp'
 const avatarIdea = '/images/avatar-idea.webp'
 
@@ -10,59 +12,6 @@ const personalInfo = [
     value: 'An environment in which I learn a lot of new technologies',
     img: avatarIdea
   }
-]
-
-const skills = ['Vue.js', 'Nuxt', 'TypeScript', 'Tailwind', 'SASS/SCSS', 'Zustand']
-
-const theory = [
-  { label: 'Docker and Docker Compose', icon: 'devicon:docker' },
-  { label: 'Design Patterns', icon: 'pajamas:building' },
-  { label: 'GitHub Actions', icon: 'pajamas:archive' },
-  { label: 'Testing pyramid', icon: 'heroicons-outline:search-circle' },
-  { label: 'GraphQL', icon: 'material-icon-theme:graphql' }
-]
-
-const timeline = [
-  {
-    title: 'Закрепление навыков',
-    description:
-      'Прошла мини-этап по подготовке, что укрепило текущие знания и умение решать задачи разной сложности'
-  },
-  {
-    title: 'Менеджерские навыки',
-    description:
-      'Принимала участие в сппорте коллег, планировании спринта, оптимизации рабочих процессов и бизнес решений'
-  },
-  {
-    title: 'Мейнтейнерство',
-    description:
-      'Поддержка ui-lib, создавала задачи для улучшения, проводила ревью, учавствовала в обсуждениях о внедрении библиотеки на сторонний проект, описывала задачи для сторонней команды и коммуницировла с разработчиками, определяла приоритезацию тасок и версионность библиотеки, получила опыт в релизном-менджменте'
-  }
-]
-
-const techTimeline = [
-  {
-    title: 'Реализация модуля отсутвий',
-    description: 'Принимала участие в разработке и интеграции нового модуля отсутвий'
-  },
-  {
-    title: 'Расширение модуля Dashboard',
-    description: 'Реализация и интегрция новых пользоваетльских виджетов'
-  },
-  {
-    title: 'Опыт работы с Web Speech API',
-    description: 'Участвовала в оптимизации компонентов с поддержкой голосового ввода'
-  },
-  {
-    title: 'Работа с кодовой базой проекта',
-    description: 'Поддержка и оптимизация сущестывующих решений, рефакторинг кода'
-  }
-]
-
-const stats = [
-  { number: '1', label: 'Years of Modsen Experience' },
-  { number: '100', label: 'MMS Commites' },
-  { number: '3', label: 'Technologies' }
 ]
 
 onMounted(() => {
@@ -184,46 +133,8 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <section class="timeline-section">
-      <div class="container">
-        <h2 class="section-title animate-fade-up" style="--delay: 0.4s">Технические Достижения</h2>
-        <div class="timeline">
-          <div
-            v-for="(item, index) in techTimeline"
-            :key="index"
-            class="timeline-item animate-slide-right"
-            :style="`--delay: ${0.5 + index * 0.15}s`"
-          >
-            <div class="timeline-marker" />
-            <div class="timeline-content">
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="timeline-section">
-      <div class="container">
-        <h2 class="section-title animate-fade-up" style="--delay: 0.4s">Личные Достижения</h2>
-        <div class="timeline">
-          <div
-            v-for="(item, index) in timeline"
-            :key="index"
-            class="timeline-item animate-slide-right"
-            :style="`--delay: ${0.5 + index * 0.15}s`"
-          >
-            <div class="timeline-marker" />
-            <div class="timeline-content">
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <TimelineSection title="Технические Достижения" :items="techTimeline" />
+    <TimelineSection title="Личные Достижения" :items="timeline" custom-class="personal-timeline" />
     <section class="stats-section">
       <DevPlans />
     </section>
@@ -248,6 +159,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
 .about-page {
   min-height: 100vh;
   background: var(--bg-primary);
@@ -434,79 +353,6 @@ onMounted(() => {
 
 .theory-icon {
   color: var(--accent-color);
-}
-
-/* Timeline Section */
-.timeline-section {
-  padding: 4rem 0;
-  background: var(--bg-secondary);
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: var(--text-primary);
-  margin-bottom: 3rem;
-  font-weight: 700;
-}
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 30px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--accent-color);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 80px;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: 22.5px;
-  top: -1px;
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  border: 4px solid var(--bg-secondary);
-}
-
-.timeline-content {
-  background: var(--bg-primary);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-}
-
-.timeline-content h3 {
-  color: var(--accent-color);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.timeline-content h4 {
-  color: var(--text-primary);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.timeline-content p {
-  color: var(--text-secondary);
-  line-height: 1.6;
 }
 
 /* Stats Section */
