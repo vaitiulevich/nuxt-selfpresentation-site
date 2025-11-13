@@ -1,4 +1,4 @@
-export const skills = ['Vue.js', 'Nuxt', 'TypeScript', 'Tailwind', 'SASS/SCSS', 'Zustand']
+export const skills = ['Vue.js', 'Nuxt', 'Tailwind', 'SASS/SCSS', 'Zustand']
 
 export const theory = [
   { label: 'Docker and Docker Compose', icon: 'devicon:docker' },
